@@ -2,15 +2,36 @@
     "services": {
         "frontend": {
             "root": "frontend",
-            "framework": "vite"
+            "framework": "vite",
+            "installCommand": "npm ci",
+            "buildCommand": "npm run build",
+            "outputDirectory": "dist"
         },
         "backend": {
-            "root": "backend"
+            "root": "backend",
+            "runtime": "python3.12",
+            "installCommand": "pip install -r requirements.txt",
+            "startCommand": "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}",
+            "healthCheck": "/api/health"
         }
     },
     "rewrites": [
         {
-            "source": "/api(/.*)?",
+            "source": "/api/(.*)",
+            "destination": {
+                "type": "service",
+                "service": "backend"
+            }
+        },
+        {
+            "source": "/docs",
+            "destination": {
+                "type": "service",
+                "service": "backend"
+            }
+        },
+        {
+            "source": "/openapi.json",
             "destination": {
                 "type": "service",
                 "service": "backend"
