@@ -1,5 +1,2 @@
-# LIGHTWEIGHT - NO pikepdf/pdf-edit-engine (breaks Vercel serverless build - needs libqpdf-dev)
-# This stub boots in <1s and proxy-passes to Render backend when BACKEND_URL is set
-fastapi==0.115.12
-pydantic==2.11.7
-httpx==0.28.1
+# Zero deps - pure stdlib handler to avoid pydantic-core PyO3 build on Python 3.14
+# Vercel Python 3.14 + pydantic-core 2.33.2 fails (PyO3 max 3.13). This avoids it entirely.
