@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+.env
+editor.db
+*.db
+*.sqlite
+storage/originals/*
+storage/versions/*
+!storage/originals/.gitkeep
+!storage/versions/.gitkeep
+.DS_Store
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
