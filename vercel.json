@@ -1,6 +1,7 @@
 {
-  "buildCommand": "if [ -f frontend/package.json ]; then npm --prefix frontend install && npm --prefix frontend run build; elif [ -f ../frontend/package.json ]; then npm --prefix ../frontend install && npm --prefix ../frontend run build; else cd frontend 2>/dev/null && npm install && npm run build || (cd ../frontend 2>/dev/null && npm install && npm run build); fi",
+  "buildCommand": "npm --prefix frontend install && npm --prefix frontend run build",
   "outputDirectory": "frontend/dist",
+  "framework": "vite",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/index.py" },
     { "source": "/docs", "destination": "/api/index.py" },
