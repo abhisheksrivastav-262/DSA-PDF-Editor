@@ -1,13 +1,13 @@
 {
     "services": {
-        "frontend": {
+        "web": {
             "root": "frontend",
             "framework": "vite",
             "installCommand": "npm ci",
             "buildCommand": "npm run build",
             "outputDirectory": "dist"
         },
-        "backend": {
+        "api": {
             "root": "backend",
             "runtime": "python3.12",
             "installCommand": "pip install -r requirements.txt",
@@ -20,28 +20,28 @@
             "source": "/api/(.*)",
             "destination": {
                 "type": "service",
-                "service": "backend"
+                "service": "api"
             }
         },
         {
             "source": "/docs",
             "destination": {
                 "type": "service",
-                "service": "backend"
+                "service": "api"
             }
         },
         {
             "source": "/openapi.json",
             "destination": {
                 "type": "service",
-                "service": "backend"
+                "service": "api"
             }
         },
         {
             "source": "/(.*)",
             "destination": {
                 "type": "service",
-                "service": "frontend"
+                "service": "web"
             }
         }
     ]
