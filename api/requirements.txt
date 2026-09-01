@@ -1,18 +1,5 @@
-# Vercel Python serverless requirements - pinned, no git URL (Vercel can't clone git deps reliably)
+# LIGHTWEIGHT - NO pikepdf/pdf-edit-engine (breaks Vercel serverless build - needs libqpdf-dev)
+# This stub boots in <1s and proxy-passes to Render backend when BACKEND_URL is set
 fastapi==0.115.12
-uvicorn==0.34.2
-sqlalchemy==2.0.43
 pydantic==2.11.7
-pydantic-settings==2.8.1
-python-multipart==0.0.12
 httpx==0.28.1
-pikepdf==10.1.0
-pdfminer.six==20250506
-fonttools==4.60.0
-lxml==6.1.0
-reportlab==4.1.0
-pillow==11.3.0
-python-jose[cryptography]==3.3.0
-passlib[bcrypt]==1.7.4
-aiofiles==24.1.0
-pdf-edit-engine==0.2.0
